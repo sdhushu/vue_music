@@ -11,5 +11,5 @@ export default defineConfig({
     })
   ],
   base: './',
-  publicDir: 'static'
+  publicDir: 'public'
 })
