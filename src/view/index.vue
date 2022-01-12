@@ -4,7 +4,7 @@
 
 <template >
     <header class="headers"></header>
-    <van-image width="100%" height="60vh" src="../../public/logo.jpg" />
+    <van-image width="100%" height="60vh" src="../../static/logo.jpg" />
     <footer class="footer">
         <van-button class="loginButton center radios" style="bottom:24%">登录</van-button>
         <div class="center loginButton" style="bottom:13%;display:flex;border:none">
