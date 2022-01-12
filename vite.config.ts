@@ -8,7 +8,7 @@ export default defineConfig({
     vue(),
     styleImport({
       resolves: [VantResolve()]
-    }),
-
-  ]
+    })
+  ],
+  base: './'
 })
