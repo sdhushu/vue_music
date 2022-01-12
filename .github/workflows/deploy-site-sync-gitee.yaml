@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: npm i
+      - name: npm install
         run: yarn
 
       - name: Build site
