@@ -10,5 +10,6 @@ export default defineConfig({
       resolves: [VantResolve()]
     })
   ],
-  base: './'
+  base: './',
+  publicDir: 'static'
 })
