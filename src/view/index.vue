@@ -4,7 +4,7 @@
 
 <template >
     <header class="headers"></header>
-    <van-image width="100%" height="60vh" lazy-load src="./logo.jpg" />
+    <van-image class="logoImg" width="100%" height="60vh" lazy-load src="./logo.jpg" />
     <footer class="footer">
         <van-button class="loginButton center radios" style="bottom:24%">登录</van-button>
         <div class="center loginButton" style="bottom:13%;display:flex;border:none">
@@ -24,6 +24,9 @@
     padding-top: 4vh;
     background-color: #4b2b96;
     margin-bottom: -1vh;
+    .logoImg {
+        pointer-events: none;
+    }
 }
 
 .radios {
