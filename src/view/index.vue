@@ -15,7 +15,7 @@
             <van-button class="otherButton radios" style="margin-left:50px;" color="#e26060">微博登录</van-button>
         </div>
 
-        <div class="newSpan center" style="bottom:6%">注册新账户</div>
+        <div class="newSpan center" style="bottom:6%" @click="$router.push('/register')">注册新账户</div>
     </footer>
 </template>
 

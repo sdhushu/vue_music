@@ -59,7 +59,7 @@ const onSubmit = (values: any) => {
         </div>
 
         <footer class="footers">
-            <div style="color:#da8218;position: absolute;bottom:2%;left:50%;transform: translate(-30%);"><p>新账号注册</p></div>
+            <div style="color:#da8218;position: absolute;bottom:2%;left:50%;transform: translate(-30%);" @click="router.push('/register')"><p>新账号注册</p></div>
         </footer>
     </header>
 </template>
