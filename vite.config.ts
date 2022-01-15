@@ -14,6 +14,9 @@ export default defineConfig({
   publicDir: 'public',
   assetsInclude: "",
   build: {
-    assetsDir:'assets'
+    assetsDir:'assets',
+
   }
 })
+
+

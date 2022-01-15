@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
-import { Button, Image,Lazyload,NavBar,Icon,Form,CellGroup,Field,ConfigProvider } from 'vant'
+import { Button, Image,Lazyload,NavBar,Icon,Form,CellGroup,Field,ConfigProvider,Swipe,SwipeItem } from 'vant'
 
 createApp(App)
     .use(router)
@@ -16,5 +16,7 @@ createApp(App)
     .use(CellGroup)
     .use(Field)
     .use(ConfigProvider)
+    .use(Swipe)
+    .use(SwipeItem)
     .mount('#app')
 

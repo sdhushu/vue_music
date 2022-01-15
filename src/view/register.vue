@@ -86,7 +86,7 @@ const onSubmit = (values: any) => {
   .register_page {
     width: 100vw;
     height: 100vh;
-    background-image: url(/bground.png);
+    background-image: url('./static/bground.png');
     background-size: 100% 100%;
     .pageBack {
       color: #da8218;
