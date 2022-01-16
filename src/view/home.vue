@@ -3,6 +3,9 @@ const theme = {
   navBarTitleFontSize: '17px',
   navBarTitleTextColor: '#fff',
   navBarBackgroundColor: 'none',
+  cellBackgroundColor: 'none',
+  cellLabelFontSize: '30px',
+  cellLabelMarginTop: '10px'
 }
 
 const images = [
@@ -58,14 +61,79 @@ const images = [
               style="width:140px;height: 140px;" />
           <div style="color: #ffffff">
             <p>Loo</p>
-            <p>tre</p>
           </div>
-
         </div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
+
+        <div class="block" style="width: 140px;height: 196px;">
+          <img
+              src="https://p3.music.126.net/KXO9cqTQf875RYGBcSRjUA==/109951164425343786.jpg?param=200y200"
+              alt=""
+              style="width:140px;height: 140px;" />
+          <div style="color: #ffffff">
+            <p>Loo</p>
+          </div>
+        </div>
+
+        <div class="block" style="width: 140px;height: 196px;">
+          <img
+              src="https://p3.music.126.net/KXO9cqTQf875RYGBcSRjUA==/109951164425343786.jpg?param=200y200"
+              alt=""
+              style="width:140px;height: 140px;" />
+          <div style="color: #ffffff">
+            <p>Loo</p>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="newSongs">
+      <div class="musicType">
+        <sapn style="padding-left: 16px;">最热单曲</sapn>
+        <span style="margin-right: 16px;color: #e08403">查看全部</span>
+      </div>
+
+      <van-cell
+          title="Long Time"
+          label="Blondie"
+          class="music_block"
+          size="large"
+          title-style="font-size:17px;color:#fff;"
+          label-class="songs_label"
+          center
+      >
+        <template #icon>
+          <van-image src="http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" style="margin-right: 10px"></van-image>
+        </template>
+      </van-cell>
+
+      <van-cell
+          title="Long Time"
+          label="Blondie"
+          class="music_block"
+          size="large"
+          title-style="font-size:17px;color:#fff;"
+          label-class="songs_label"
+          center
+      >
+        <template #icon>
+          <van-image src="http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" style="margin-right: 10px"></van-image>
+        </template>
+      </van-cell>
+
+
+      <van-cell
+          title="Long Time"
+          label="Blondie"
+          class="music_block"
+          size="large"
+          title-style="font-size:17px;color:#fff;"
+          label-class="songs_label"
+          center
+      >
+        <template #icon>
+          <van-image src="http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" style="margin-right: 10px"></van-image>
+        </template>
+      </van-cell>
     </div>
 
   </van-config-provider>
@@ -119,6 +187,9 @@ header {
   height: 550px;
   background-color: #151618;
   margin-top: -5px;
+}
+.songs_label {
+  font-size: 30px;
 }
 
 </style>
