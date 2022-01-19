@@ -26,6 +26,11 @@ const router = createRouter({
             path:'/home',
             name:'home',
             component: ()=>import('../view/home.vue')
+        },
+        {
+            path:'/type',
+            name:'type',
+            component: ()=>import('../view/classification.vue')
         }
     ]
 })

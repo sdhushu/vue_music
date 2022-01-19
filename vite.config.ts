@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   base: './',
   publicDir: 'public',
-  assetsInclude: "",
+  assetsInclude: ['**/*.gltf'],
   build: {
     assetsDir:'assets',
 
