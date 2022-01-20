@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport, { VantResolve } from 'vite-plugin-style-import';
-
+import  path from "path";
 // https://vitejs.dev/config/
+
+const srcPath = path.resolve(__dirname, 'src');
 export default defineConfig({
   plugins: [
     vue(),
@@ -13,9 +15,10 @@ export default defineConfig({
   base: './',
   publicDir: 'public',
   assetsInclude: ['**/*.gltf'],
-  build: {
-    assetsDir:'assets',
-
+  resolve: {
+    alias: [
+      {find: '@', replacement:srcPath}
+    ]
   }
 })
 
