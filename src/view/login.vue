@@ -5,7 +5,9 @@ const username = ref('');
 const password = ref('');
 const themeVars = {
       fieldInputTextColor: '#fff',
-      buttonIconSize: '30px'
+      buttonIconSize: '30px',
+    cellBackgroundColor: 'none',
+    cellGroupBackgroundColor:'none'
 };
 
 const onSubmit = (values: any) => {
@@ -68,7 +70,8 @@ const onSubmit = (values: any) => {
 .headers {
     padding-top: 4vh;
     width: 100vw;
-    background-color: #072752;
+    background-image: url(@/assets/image/Background.png);
+    background-size: 100% 100%;
     .titleBar {
         padding-left: 20px;
     }
@@ -110,7 +113,6 @@ const onSubmit = (values: any) => {
             }
         }
         .InputStyle {
-            background-color: #072752;
             color: #fff;
             border-bottom: 3px solid #5a5f6b;
         }
@@ -126,6 +128,7 @@ const onSubmit = (values: any) => {
         width: 100px;
         height: 80px;
         border-radius: 5px;
+        opacity: 0.5;
     }
     .footers {
         height: 38vh;
