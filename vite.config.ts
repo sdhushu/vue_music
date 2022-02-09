@@ -6,6 +6,16 @@ import  path from "path";
 
 const srcPath = path.resolve(__dirname, 'src');
 export default defineConfig({
+  server:{
+    proxy:{
+      '/api': {
+        target:'https://neteasecloudmusicapi.vercel.app/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    },
+    cors:true
+  },
   plugins: [
     vue(),
     styleImport({
@@ -19,7 +29,7 @@ export default defineConfig({
     alias: [
       {find: '@', replacement:srcPath}
     ]
-  }
+  },
 })
 
 

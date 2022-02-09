@@ -1,17 +1,32 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import {getCurrentInstance, ref} from "vue";
 import router from "../router";
 const username = ref('');
 const password = ref('');
+const code = ref('')
 const themeVars = {
       fieldInputTextColor: '#fff',
       buttonIconSize: '30px',
-    cellBackgroundColor: 'none',
-    cellGroupBackgroundColor:'none'
+      cellBackgroundColor: 'none',
+      cellGroupBackgroundColor:'none'
 };
+const {proxy}:any = getCurrentInstance()
+const mobileRule = (val:string) => {
+  const res = (/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/).test(val)
+  return res ? '' : '手机号不合法！'
+}
 
-const onSubmit = (values: any) => {
-    console.log('submit', values);
+const onSubmit = async () => {
+    console.log('start')
+    const res = await proxy.Get('/login/cellphone',{ phone:username.value, password:password.value })
+    console.log(res,111)
+    localStorage.setItem('cookie',res.data.cookie)
+    // const token = await proxy.Interceptor(res.data.token)
+    // console.log(token,'token')
+    // console.log(localStorage.getItem('cookie'))
+    const status = await proxy.Get('/recommend/resource')
+    console.log(status,'status')
+    console.log('submit', username.value,password.value);
 };
 </script>
 
@@ -38,7 +53,10 @@ const onSubmit = (values: any) => {
                             :border="false"
                             v-model="username"
                             name="用户名"
-                            :rules="[{ required: true, message: '请填写用户名' }]"
+                            label="用户名"
+                            :rules="[
+                                { required: true, message: '请填写手机号' },
+                                { validator: mobileRule}]"
                             class="InputStyle"
                         />
                         <van-field
@@ -46,9 +64,21 @@ const onSubmit = (values: any) => {
                             v-model="password"
                             type="password"
                             name="密码"
+                            label="密码"
                             :rules="[{ required: true, message: '请填写密码' }]"
                             class="InputStyle"
                         />
+<!--                      <van-field-->
+<!--                          clearable-->
+<!--                          v-model="code"-->
+<!--                          name="验证码"-->
+<!--                          :rules="[{ required: true, message: '请填写验证码' }]"-->
+<!--                          class="InputStyle"-->
+<!--                      >-->
+<!--                        <template #button>-->
+<!--                          <van-button size="small" type="primary">发送验证码</van-button>-->
+<!--                        </template>-->
+<!--                      </van-field>-->
                     </van-cell-group>
                     <div style="margin: 20px;">
                         <van-button icon="chat-o" class="wechatButton" color="#072752"></van-button>

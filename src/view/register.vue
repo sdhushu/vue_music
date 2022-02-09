@@ -16,6 +16,7 @@ const themeVars = {
 const username = ref('');
 const password = ref('');
 const onSubmit = (values: any) => {
+  console.log(username,password)
   console.log('submit', values);
 };
 </script>
