@@ -35,4 +35,11 @@ const router = createRouter({
     ]
 })
 
+router.beforeEach((to,from,next)=>{
+    console.log(navigator.userAgent,111)
+    const Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']
+    const token = localStorage.getItem('token')
+    if (to.name === 'home' && !token) next({name:'login'})
+    else next()
+})
 export default router

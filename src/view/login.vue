@@ -1,32 +1,44 @@
 <script setup lang="ts">
 import {getCurrentInstance, ref} from "vue";
+import {Notify} from "vant";
 import router from "../router";
+import axios from "axios";
+import {$ref} from "vue/macros";
 const username = ref('');
 const password = ref('');
-const code = ref('')
+const loading = ref(false)
 const themeVars = {
       fieldInputTextColor: '#fff',
       buttonIconSize: '30px',
       cellBackgroundColor: 'none',
       cellGroupBackgroundColor:'none'
 };
-const {proxy}:any = getCurrentInstance()
+// const {proxy}:any = getCurrentInstance()
 const mobileRule = (val:string) => {
   const res = (/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/).test(val)
   return res ? '' : '手机号不合法！'
 }
 
-const onSubmit = async () => {
-    console.log('start')
-    const res = await proxy.Get('/login/cellphone',{ phone:username.value, password:password.value })
-    console.log(res,111)
-    localStorage.setItem('cookie',res.data.cookie)
-    // const token = await proxy.Interceptor(res.data.token)
-    // console.log(token,'token')
-    // console.log(localStorage.getItem('cookie'))
-    const status = await proxy.Get('/recommend/resource')
-    console.log(status,'status')
-    console.log('submit', username.value,password.value);
+const onSubmit = () => {
+    loading.value = true
+    axios.get('/api/login/cellphone',{ params:{phone:username.value, password:password.value }})
+        .then( async (res)=>{
+          if (res.data.code !== 200) {
+            loading.value = false
+            return Notify({
+              message: res.data.message,
+              position: 'top',
+            });
+          }
+          const status  = await  axios.get('/api/recommend/songs',{withCredentials:true})
+          console.log('status',status)
+          loading.value = false
+          router.push('/home')
+        })
+        .catch((err)=>{
+          console.log(err)
+          loading.value = false
+        })
 };
 </script>
 
@@ -93,6 +105,7 @@ const onSubmit = async () => {
         <footer class="footers">
             <div style="color:#da8218;position: absolute;bottom:2%;left:50%;transform: translate(-30%);" @click="router.push('/register')"><p>新账号注册</p></div>
         </footer>
+        <van-loading v-if="loading" vertical class="loading" size="60" color="#FFF">加载中</van-loading>
     </header>
 </template>
 
@@ -162,6 +175,12 @@ const onSubmit = async () => {
     }
     .footers {
         height: 38vh;
+    }
+    .loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
     }
 }
 </style>

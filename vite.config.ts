@@ -9,7 +9,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api': {
-        target:'https://neteasecloudmusicapi.vercel.app/',
+        target:'http://life-4hgd0k7zu-sdhushu.vercel.app/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

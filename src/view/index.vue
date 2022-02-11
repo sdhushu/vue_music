@@ -4,11 +4,11 @@ import {getCurrentInstance, onMounted} from "vue";
   let request = async () => {
     // const res = await proxy.Get('/top/playlist',{limit:10,order:'new'})
     // const res = await proxy.Post('')
-    const res = await proxy.All([
-        proxy.Get('/top/playlist',{limit:10,order:'new'})
-      ,proxy.Get('/top/playlist',{limit:10,order:'new'})
-    ])
-    console.log(res,1112)
+    // const res = await proxy.All([
+    //     proxy.Get('/top/playlist',{limit:10,order:'new'})
+    //   ,proxy.Get('/top/playlist',{limit:10,order:'new'})
+    // ])
+    // console.log(res,1112)
   };
   onMounted( ()=>{
     request()

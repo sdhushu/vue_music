@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import Axios from "./plugins/axios"
-import { Button, Image,Lazyload,NavBar,Icon,Form,CellGroup,Field,ConfigProvider,Swipe,SwipeItem,Cell } from 'vant'
+import { Button, Image,Lazyload,NavBar,Icon,Form,CellGroup,Field,ConfigProvider,Swipe,SwipeItem,Cell,Loading } from 'vant'
 
 const option = {
-    baseURL: '/api',
+    // baseURL: '/api',
 }
 
 createApp(App)
@@ -24,5 +24,6 @@ createApp(App)
     .use(Swipe)
     .use(SwipeItem)
     .use(Cell)
-    .use(Axios,option)
+    .use(Loading)
+    // .use(Axios,option)
     .mount('#app')
